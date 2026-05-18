@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { Dialog, DialogPanel } from "@headlessui/react";
+import { useTheme } from "../helpers/ThemeContext";
 
 interface Props {
   children: React.ReactNode;
@@ -16,10 +17,11 @@ const navigation: Array<{ name: string; href: string }> = [
 
 export default function MainLayout({ children }: Props) {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
-      <header className="bg-gray-900 text-white">
+      <header className="bg-white text-dark dark:bg-gray-900 dark:text-white  transition-colors duration-300">
         <nav
           aria-label="Global"
           className="flex items-center justify-between lg:justify-center p-6 lg:px-8"
@@ -52,6 +54,10 @@ export default function MainLayout({ children }: Props) {
                 </a>
               ))}
             </div>
+
+            <button onClick={toggleTheme}>
+              {theme === "dark" ? "🌙" : "☀️"}
+            </button>
           </section>
 
           <Dialog
@@ -100,7 +106,7 @@ export default function MainLayout({ children }: Props) {
 
       <section>{children}</section>
 
-      <footer className="bg-gray-900 text-white absolute bottom-0 w-full">
+      <footer className="bg-white text-dark dark:bg-gray-900 dark:text-white transition-colors duration-300 absolute bottom-0 w-full">
         <div className="flex items-center justify-center gap-10 p-6 lg:px-8">
           <p className="text-sm/6 font-semibold">2026 © Mao.Dev</p>
           <a href="#">
