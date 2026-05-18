@@ -1,7 +1,11 @@
+import Hero from "./components/sections/Hero";
+import MainLayout from "./layouts/MainLayout";
 function App() {
   return (
     <>
-      <h1>Hola, Mundo</h1>
+      <MainLayout>
+        <Hero />
+      </MainLayout>
     </>
   );
 }
