@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { useTheme } from "../helpers/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 
 interface Props {
   children: React.ReactNode;
