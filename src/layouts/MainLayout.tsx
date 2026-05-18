@@ -2,20 +2,17 @@ import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { useTheme } from "../context/ThemeContext";
+import { NavLink, Outlet } from "react-router";
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const navigation: Array<{ name: string; href: string }> = [
-  { name: "Inicio", href: "#" },
-  { name: "Proyectos", href: "#" },
-  { name: "Sobre mí", href: "#" },
-  { name: "Skills", href: "#" },
-  { name: "Contacto", href: "#" },
+const navigation: Array<{ name: string; to: string }> = [
+  { name: "Inicio", to: "/" },
+  { name: "Proyectos", to: "/projects" },
+  { name: "Sobre mí", to: "/about" },
+  { name: "Skills", to: "/skills" },
+  { name: "Contacto", to: "/contact" },
 ];
 
-export default function MainLayout({ children }: Props) {
+export default function MainLayout() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
@@ -45,13 +42,15 @@ export default function MainLayout({ children }: Props) {
           <section className="hidden lg:flex lg:gap-x-12">
             <div className="hidden lg:flex lg:gap-x-12">
               {navigation.map((item) => (
-                <a
+                <NavLink
                   key={item.name}
-                  href={item.href}
-                  className="text-sm/6 font-semibold"
+                  to={item.to}
+                  className={({ isActive }) =>
+                    isActive ? "text-purple-500 font-bold" : "text-gray-500"
+                  }
                 >
                   {item.name}
-                </a>
+                </NavLink>
               ))}
             </div>
 
@@ -87,14 +86,18 @@ export default function MainLayout({ children }: Props) {
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <nav className="space-y-6 pb-8">
                     {navigation.map((item) => (
-                      <a
+                      <NavLink
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         onClick={() => setMobileMenu(false)}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-purple-500 font-bold"
+                            : "text-gray-500"
+                        }
                       >
                         {item.name}
-                      </a>
+                      </NavLink>
                     ))}
                   </nav>
                 </div>
@@ -104,7 +107,9 @@ export default function MainLayout({ children }: Props) {
         </nav>
       </header>
 
-      <section>{children}</section>
+      <main className="h-[calc(100vh-72px)]">
+        <Outlet />
+      </main>
 
       <footer className="bg-white text-dark dark:bg-gray-900 dark:text-white transition-colors duration-300 absolute bottom-0 w-full">
         <div className="flex items-center justify-center gap-10 p-6 lg:px-8">
