@@ -6,7 +6,7 @@ export default function MainLayout() {
   return (
     <>
       <Header />
-      <main className="h-[calc(100vh-152px)]">
+      <main className="h-[calc(100vh-153px)]">
         <Outlet />
       </main>
       <Footer />
