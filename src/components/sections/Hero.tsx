@@ -30,8 +30,10 @@ export default function Hero() {
         className="w-full lg:w-1/2 p-4 flex flex-col items-center gap-8"
       >
         <header className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Hola, soy Mario Machado</h1>
-          <p className="text-xl opacity-60">
+          <h1 className="text-3xl font-bold mb-4 lg sm:text-4xl">
+            Hola, soy Mario Machado
+          </h1>
+          <p className="text-lg opacity-60 text-justify sm:text-2xl sm:text-center">
             Desarrollador Frontend especializado en React y TypeScript.
             Construyo interfaces rápidas, accesibles y enfocadas en la
             experiencia del usuario.
@@ -45,7 +47,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               key={stack.nombre}
-              className={`${stack.color} font-sans  px-3 py-1 rounded-full text-white text-xl`}
+              className={`${stack.color} font-sans px-3 py-1 rounded-full text-white text-xl`}
             >
               {stack.nombre}
             </motion.span>
