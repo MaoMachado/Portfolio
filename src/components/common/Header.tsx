@@ -1,8 +1,8 @@
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+import { Dialog, DialogPanel } from "@headlessui/react";
 
 const navigation: Array<{ name: string; to: string }> = [
   { name: "Inicio", to: "/" },
