@@ -6,7 +6,7 @@ export default function MainLayout() {
   return (
     <>
       <Header />
-      <main className="h-[calc(100vh-153px)]">
+      <main className="h-[calc(100vh-153px)] overflow-auto">
         <Outlet />
       </main>
       <Footer />
