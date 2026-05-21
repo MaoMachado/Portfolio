@@ -26,29 +26,15 @@ export default function Projects() {
     fetchData();
   }, []);
 
-  const style = [
-    "min-h-[calc(100vh-153px)]",
-    "grid",
-    "place-items-center",
-    "px-4",
-    "py-12",
-    "bg-white",
-    "text-dark",
-    "dark:bg-gray-900",
-    "dark:text-white",
-    "transition-colors",
-    "duration-300",
-  ];
-
   return (
-    <section className={style.join(" ")}>
+    <section className="w-full lg:w-1/2">
       <motion.div
-        className="max-w-5xl w-full"
+        className="flex flex-col items-center gap-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-2xl font-bold mb-4 text-center lg:text-3xl lg:text-left">
+        <h2 className="text-2xl font-bold text-center lg:text-3xl">
           Proyectos
         </h2>
         <article className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
