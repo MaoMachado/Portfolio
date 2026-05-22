@@ -8,7 +8,6 @@ const navigation: Array<{ name: string; to: string }> = [
   { name: "Inicio", to: "/" },
   { name: "Proyectos", to: "/projects" },
   { name: "Sobre mí", to: "/about" },
-  { name: "Skills", to: "/skills" },
   { name: "Contacto", to: "/contact" },
 ];
 
