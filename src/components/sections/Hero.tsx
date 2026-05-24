@@ -2,19 +2,6 @@ import { motion } from "motion/react";
 import { NavLink } from "react-router";
 
 export default function Hero() {
-  const stylesSection: string[] = [
-    "min-h-[calc(100vh-153px)]",
-    "grid",
-    "place-items-center",
-    "px-4",
-    "bg-white",
-    "text-dark",
-    "dark:bg-gray-900",
-    "dark:text-white",
-    "transition-colors",
-    "duration-300",
-  ];
-
   const stacks: { nombre: string; color: string }[] = [
     { nombre: "React", color: "bg-blue-500" },
     { nombre: "TypeScript", color: "bg-blue-700" },
@@ -22,12 +9,12 @@ export default function Hero() {
   ];
 
   return (
-    <section className={stylesSection.join(" ")}>
+    <section className="w-full lg:w-1/2">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full lg:w-1/2 p-4 flex flex-col items-center gap-8"
+        className="flex flex-col items-center gap-8"
       >
         <header className="text-center">
           <h1 className="text-3xl font-bold mb-4 lg sm:text-4xl">

@@ -17,6 +17,14 @@
   --text-dark: #0f172a;
   --text-light: #e2e8f0;
   --ascent-primary: #3b82f6;
+  --ascent-primary-10: hsla(217, 91%, 60%, 0.1);
+  --ascent-primary-30: hsla(217, 91%, 60%, 0.3);
+  --ascent-primary-50: hsla(217, 91%, 60%, 0.5);
+  --ascent-primary-50: hsla(217, 91%, 60%, 0.5);
+  --ascent-primary-50: hsla(217, 91%, 60%, 0.5);
+  --ascent-primary-70: hsla(217, 91%, 60%, 0.7);
+  --ascent-primary-90: hsla(217, 91%, 60%, 0.9);
+
   --ascent-secondary: #8b5cf6;
 }
 
