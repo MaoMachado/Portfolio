@@ -27,7 +27,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="w-full lg:w-1/2">
+    <section className="w-full lg:w-1/2 py-4">
       <motion.div
         className="flex flex-col items-center gap-8"
         initial={{ opacity: 0, y: 20 }}
