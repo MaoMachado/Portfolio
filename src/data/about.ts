@@ -1,11 +1,11 @@
-export interface AboutData {
+export interface AboutType {
   title: string;
   myPath: string;
   skillsApproach: string;
   interests: string;
 }
 
-export const ABOUT: AboutData[] = [
+export const ABOUT: AboutType [] = [
   {
     title: "Sobre Mí",
     myPath:

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { PROJECTS, type TypeDataProjects } from "../../data/projects";
+import { PROJECTS, type ProjectsType } from "../../data/projects";
 import ProjectCard from "../common/ProjectCard";
 import ProjectCardSkeleton from "../common/ProjectCardSkeleton";
 
 export default function Projects() {
-  const [data, setData] = useState<TypeDataProjects[]>([]);
+  const [data, setData] = useState<ProjectsType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
