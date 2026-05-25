@@ -11,6 +11,7 @@ import {
   SiVuedotjs,
 } from "react-icons/si";
 import { SKILLS, type SkillsType } from "../../data/skills";
+import { motion } from "motion/react";
 
 interface SkillsProps {
   handleOpenModal: () => void;
@@ -35,11 +36,19 @@ export default function Skills({ handleOpenModal }: SkillsProps) {
   };
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25 }}
       onClick={handleOpenModal}
       className="w-screen h-screen p-4 lg:p-0 fixed top-0 left-0 bg-black/70 backdrop-blur-sm z-60 flex items-center justify-center"
     >
-      <div className="w-full lg:w-1/2 bg-white rounded-lg p-6 text-dark dark:bg-gray-800 dark:text-white">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25 }}
+        className="w-full lg:w-1/2 bg-white rounded-lg p-6 text-dark dark:bg-gray-800 dark:text-white"
+      >
         <h2 className="text-2xl font-bold text-center lg:text-3xl mb-6 text-(--ascent-primary)">
           Tech Stacks
         </h2>
@@ -74,7 +83,7 @@ export default function Skills({ handleOpenModal }: SkillsProps) {
             </div>
           ))}
         </article>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
