@@ -1,4 +1,15 @@
 import { useEffect, useState } from "react";
+import type { IconType } from "react-icons";
+import {
+  SiGit,
+  SiNetlify,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiVite,
+  SiVscodium,
+  SiVuedotjs,
+} from "react-icons/si";
 import { SKILLS, type SkillsType } from "../../data/skills";
 
 interface SkillsProps {
@@ -11,6 +22,17 @@ export default function Skills({ handleOpenModal }: SkillsProps) {
   useEffect(() => {
     setData(SKILLS);
   }, []);
+
+  const IconsMap: Record<string, IconType> = {
+    react: SiReact,
+    vuejs: SiVuedotjs,
+    typescript: SiTypescript,
+    tailwindcss: SiTailwindcss,
+    git: SiGit,
+    vite: SiVite,
+    netlify: SiNetlify,
+    vscode: SiVscodium,
+  };
 
   return (
     <section
@@ -28,15 +50,26 @@ export default function Skills({ handleOpenModal }: SkillsProps) {
               className="p-6 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-md"
             >
               <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {item.skills.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 text-sm rounded-full bg-(--ascent-primary) text-white"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <div className="flex flex-col flex-wrap gap-2">
+                {item.skills.map((skill) => {
+                  const IconComponent = skill.icon
+                    ? IconsMap[skill.icon]
+                    : null;
+
+                  return (
+                    <span
+                      key={skill.name}
+                      className={`flex items-center justify-between gap-2 px-3 py-1 rounded-full text-sm font-medium bg-(--ascent-primary-30) text-black dark:text-white`}
+                    >
+                      {skill.name}
+                      {IconComponent ? (
+                        <IconComponent className="w-5 h-5" />
+                      ) : (
+                        <span>⚫</span>
+                      )}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}
