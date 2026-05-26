@@ -1,4 +1,4 @@
-export interface TypeDataProjects {
+export interface ProjectsType {
   title: string;
   description: string;
   tags: string[];
@@ -7,7 +7,7 @@ export interface TypeDataProjects {
   image?: string;
 }
 
-export const PROJECTS: TypeDataProjects[] = [
+export const PROJECTS: ProjectsType[] = [
   {
     title: "E-commerce de ropa urbana",
     description:

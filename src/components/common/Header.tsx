@@ -3,6 +3,7 @@ import { useTheme } from "../../context/ThemeContext";
 import { NavLink } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { Dialog, DialogPanel } from "@headlessui/react";
+import Skills from "../sections/Skills";
 
 const navigation: Array<{ name: string; to: string }> = [
   { name: "Inicio", to: "/" },
@@ -12,19 +13,31 @@ const navigation: Array<{ name: string; to: string }> = [
 ];
 
 export default function Header() {
-  const [mobileMenu, setMobileMenu] = useState(false);
+  const [handleSkills, setHandleSkills] = useState<boolean>(false);
+  const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const { theme, toggleTheme } = useTheme();
 
+  const toggleSkills = () => {
+    setHandleSkills(!handleSkills);
+  };
+
   return (
-    <header className="bg-white text-dark dark:bg-gray-900 dark:text-white  transition-colors duration-300">
+    <header className="bg-white text-dark dark:bg-gray-900 dark:text-white transition-colors duration-300">
       <nav
         aria-label="Global"
-        className="flex items-center justify-between lg:justify-center p-6 lg:px-8"
+        className="flex items-center justify-between lg:justify-center p-6"
       >
-        <section className="flex lg:flex-1">
+        <section className="flex lg:flex-1 items-center gap-4">
           <a href="#">
-            <h1 className="text-2xl font-bold">Mario Machado</h1>
+            <h1 className="text-xl lg:text-3xl font-bold">Mario Machado</h1>
           </a>
+
+          <button
+            onClick={toggleSkills}
+            className="px-3 py-1 bg-gray-200 dark:bg-(--ascent-primary) rounded pointer-cursor hidden lg:inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white"
+          >
+            <span>View skills</span>
+          </button>
         </section>
 
         <section className="flex lg:hidden">
@@ -66,6 +79,13 @@ export default function Header() {
               </a>
 
               <button
+                onClick={toggleSkills}
+                className="px-3 py-1 bg-gray-200 dark:bg-(--ascent-primary) rounded pointer-cursor inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white"
+              >
+                <span>View skills</span>
+              </button>
+
+              <button
                 type="button"
                 onClick={() => setMobileMenu(false)}
                 className="-m-2.5 rounded-md p-2.5 text-gray-200"
@@ -97,6 +117,8 @@ export default function Header() {
           </DialogPanel>
         </Dialog>
       </nav>
+
+      {handleSkills && <Skills handleOpenModal={toggleSkills} />}
     </header>
   );
 }

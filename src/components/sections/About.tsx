@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { ABOUT, type AboutData } from "../../data/about";
+import { ABOUT, type AboutType } from "../../data/about";
 
 export default function About() {
-  const [data, setData] = useState<AboutData[]>([]);
+  const [data, setData] = useState<AboutType[]>([]);
 
   useEffect(() => {
     try {
