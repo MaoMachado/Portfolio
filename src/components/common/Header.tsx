@@ -22,10 +22,10 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white text-dark dark:bg-gray-900 dark:text-white  transition-colors duration-300">
+    <header className="bg-white text-dark dark:bg-gray-900 dark:text-white transition-colors duration-300">
       <nav
         aria-label="Global"
-        className="flex items-center justify-between lg:justify-center p-6 lg:px-8"
+        className="flex items-center justify-between lg:justify-center p-6"
       >
         <section className="flex lg:flex-1 items-center gap-4">
           <a href="#">

@@ -6,8 +6,9 @@ export default function MainLayout() {
   const classMain = [
     "grid",
     "place-items-center",
+    "lg:h-[calc(100vh-180px)]",
+    "h-[calc(100vh-229px)]",
     "w-full",
-    "h-[calc(100vh-153px)]",
     "overflow-auto",
     "bg-white text-dark",
     "dark:bg-gray-900 dark:text-white",
